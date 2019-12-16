@@ -1,0 +1,65 @@
+{
+  "name": "vue-skelly",
+  "version": "0.0.1",
+  "description": "Collection of skeleton loader components for Vue.js",
+  "main": "dist/bundle.umd.js",
+  "module": "dist/bundle.esm.js",
+  "unpkg": "dist/bundle.min.js",
+  "repository": "https://github.com/kyleoliveiro/vue-skelly",
+  "author": "Kyle Oliveiro <hello@kyle.sg>",
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint --ext .js,.vue src/",
+    "eslint:fix": "eslint --fix --ext .js,.vue src/",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/bundle.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/bundle.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/bundle.min.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "yarn eslint:fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/vue": "^5.2.8",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "rollup": "^1.27.10",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^5.1.4",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.3.10"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.10"
+  },
+  "dependencies": {
+    "color": "^3.1.2"
+  }
+}
