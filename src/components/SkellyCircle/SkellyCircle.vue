@@ -40,5 +40,6 @@ export default {
     border-radius: 100%;
     padding-bottom: 100%;
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 </style>

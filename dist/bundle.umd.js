@@ -194,15 +194,15 @@
 
   const __vue_inject_styles__$1 = function (inject) {
     if (!inject) return;
-    inject("data-v-2914de55_0", {
-      source: "\n.skelly-circle__shape[data-v-2914de55] {\n  position: relative;\n  border-radius: 100%;\n  padding-bottom: 100%;\n  overflow: hidden;\n}\n",
+    inject("data-v-546b5035_0", {
+      source: "\n.skelly-circle__shape[data-v-546b5035] {\n  position: relative;\n  border-radius: 100%;\n  padding-bottom: 100%;\n  overflow: hidden;\n  -webkit-mask-image: -webkit-radial-gradient(white, black);\n}\n",
       map: {
         "version": 3,
         "sources": ["/Users/kyle/Code/vue-skelly/src/components/SkellyCircle/SkellyCircle.vue"],
         "names": [],
-        "mappings": ";AAqCA;EACA,kBAAA;EACA,mBAAA;EACA,oBAAA;EACA,gBAAA;AACA",
+        "mappings": ";AAqCA;EACA,kBAAA;EACA,mBAAA;EACA,oBAAA;EACA,gBAAA;EACA,yDAAA;AACA",
         "file": "SkellyCircle.vue",
-        "sourcesContent": ["<template>\n  <div\n    class=\"skelly-circle\"\n    :style=\"{\n      width: size,\n      height: size,\n    }\"\n  >\n    <div\n      class=\"skelly-circle__shape\"\n      :style=\"{\n        backgroundColor: color,\n      }\"\n    >\n      <skelly-shine :color=\"color\" />\n    </div>\n  </div>\n</template>\n\n<script>\nimport ShapeMixin from '../../mixins/ShapeMixin';\n\nexport default {\n  name: 'SkellyCircle',\n  mixins: [\n    ShapeMixin,\n  ],\n  props: {\n    size: {\n      type: String,\n      default: '100%',\n    },\n  },\n}\n</script>\n\n<style scoped>\n  .skelly-circle__shape {\n    position: relative;\n    border-radius: 100%;\n    padding-bottom: 100%;\n    overflow: hidden;\n  }\n</style>"]
+        "sourcesContent": ["<template>\n  <div\n    class=\"skelly-circle\"\n    :style=\"{\n      width: size,\n      height: size,\n    }\"\n  >\n    <div\n      class=\"skelly-circle__shape\"\n      :style=\"{\n        backgroundColor: color,\n      }\"\n    >\n      <skelly-shine :color=\"color\" />\n    </div>\n  </div>\n</template>\n\n<script>\nimport ShapeMixin from '../../mixins/ShapeMixin';\n\nexport default {\n  name: 'SkellyCircle',\n  mixins: [\n    ShapeMixin,\n  ],\n  props: {\n    size: {\n      type: String,\n      default: '100%',\n    },\n  },\n}\n</script>\n\n<style scoped>\n  .skelly-circle__shape {\n    position: relative;\n    border-radius: 100%;\n    padding-bottom: 100%;\n    overflow: hidden;\n    -webkit-mask-image: -webkit-radial-gradient(white, black);\n  }\n</style>"]
       },
       media: undefined
     });
@@ -210,7 +210,7 @@
   /* scoped */
 
 
-  const __vue_scope_id__$1 = "data-v-2914de55";
+  const __vue_scope_id__$1 = "data-v-546b5035";
   /* module identifier */
 
   const __vue_module_identifier__$1 = undefined;
