@@ -47,7 +47,7 @@ export default {
     },
     mixBlendMode: {
       type: String,
-      default: 'soft-light',
+      default: 'none',
     },
     animationDirection: {
       type: String,
