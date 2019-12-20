@@ -34,7 +34,7 @@ export default {
     },
     darkOpacity: {
       type: Number,
-      default: 0.125,
+      default: 0.25,
     },
     lightSaturation: {
       type: Number,
@@ -46,7 +46,7 @@ export default {
     },
     mixBlendMode: {
       type: String,
-      default: 'soft-light',
+      default: 'none',
     },
     animationTimingFunction: {
       type: String,
@@ -107,6 +107,6 @@ export default {
     will-change: transform;
     animation-name: move-right;
     animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
   }
 </style>
