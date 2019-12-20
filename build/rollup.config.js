@@ -1,6 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs'; // Convert CommonJS modules to ES6
 import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
-import buble from 'rollup-plugin-buble';
+import babel from 'rollup-plugin-babel';
 
 // Transpile/polyfill with reasonable browser support
 export default {
@@ -15,6 +15,10 @@ export default {
             css: true, // Dynamically inject css as a <style> tag
             compileTemplate: true, // Explicitly convert template to render function
         }),
-        buble(), // Transpile to ES5
+        babel({
+            runtimeHelpers: true,
+            sourceMap: true,
+            extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
+        }), // Transpile to ES5
     ],
 };
