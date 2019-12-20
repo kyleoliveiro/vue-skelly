@@ -3,6 +3,7 @@
     class="skelly-shine"
     :style="{
       mixBlendMode,
+      animationDirection,
       animationDuration,
       animationTimingFunction,
       backgroundImage: `linear-gradient(to right, ${colorStops})`,
@@ -47,6 +48,10 @@ export default {
     mixBlendMode: {
       type: String,
       default: 'soft-light',
+    },
+    animationDirection: {
+      type: String,
+      default: 'normal',
     },
     animationTimingFunction: {
       type: String,
@@ -107,6 +112,5 @@ export default {
     will-change: transform;
     animation-name: move-right;
     animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
   }
 </style>

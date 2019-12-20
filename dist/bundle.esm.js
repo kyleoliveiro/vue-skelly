@@ -37,6 +37,10 @@ var script = {
       type: String,
       default: 'soft-light'
     },
+    animationDirection: {
+      type: String,
+      default: 'normal'
+    },
     animationTimingFunction: {
       type: String,
       default: 'linear'
@@ -79,6 +83,7 @@ var __vue_render__ = function () {
     staticClass: "skelly-shine",
     style: {
       mixBlendMode: _vm.mixBlendMode,
+      animationDirection: _vm.animationDirection,
       animationDuration: _vm.animationDuration,
       animationTimingFunction: _vm.animationTimingFunction,
       backgroundImage: "linear-gradient(to right, " + _vm.colorStops + ")"
@@ -92,15 +97,15 @@ __vue_render__._withStripped = true;
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-3e9ca025_0", {
-    source: "\n@keyframes move-right-data-v-3e9ca025 {\nfrom {\n    transform: translateX(-125%);\n}\nto {\n    transform: translateX(50%);\n}\n}\n.skelly-shine[data-v-3e9ca025] {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 400%;\n  transform-style: preserve-3d;\n  backface-visibility: hidden;\n  will-change: transform;\n  animation-name: move-right-data-v-3e9ca025;\n  animation-iteration-count: infinite;\n  animation-direction: alternate-reverse;\n}\n",
+  inject("data-v-26772c4e_0", {
+    source: "\n@keyframes move-right-data-v-26772c4e {\nfrom {\n    transform: translateX(-125%);\n}\nto {\n    transform: translateX(50%);\n}\n}\n.skelly-shine[data-v-26772c4e] {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 400%;\n  transform-style: preserve-3d;\n  backface-visibility: hidden;\n  will-change: transform;\n  animation-name: move-right-data-v-26772c4e;\n  animation-iteration-count: infinite;\n}\n",
     map: {
       "version": 3,
       "sources": ["/Users/kyle/Code/vue-skelly/src/components/_SkellyShine/SkellyShine.vue"],
       "names": [],
-      "mappings": ";AAuFA;AACA;IACA,4BAAA;AACA;AAEA;IACA,0BAAA;AACA;AACA;AAEA;EACA,cAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,WAAA;EACA,4BAAA;EACA,2BAAA;EACA,sBAAA;EACA,0CAAA;EACA,mCAAA;EACA,sCAAA;AACA",
+      "mappings": ";AA4FA;AACA;IACA,4BAAA;AACA;AAEA;IACA,0BAAA;AACA;AACA;AAEA;EACA,cAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,WAAA;EACA,4BAAA;EACA,2BAAA;EACA,sBAAA;EACA,0CAAA;EACA,mCAAA;AACA",
       "file": "SkellyShine.vue",
-      "sourcesContent": ["<template>\n  <div\n    class=\"skelly-shine\"\n    :style=\"{\n      mixBlendMode,\n      animationDuration,\n      animationTimingFunction,\n      backgroundImage: `linear-gradient(to right, ${colorStops})`,\n    }\"\n  />\n</template>\n\n<script>\nimport Color from 'color';\n\nexport default {\n  name: 'SkellyShine',\n  props: {\n    color: {\n      type: String,\n      default: '#000000',\n    },\n    lightMultiplier: {\n      type: Number,\n      default: 0.5,\n    },\n    darkMultiplier: {\n      type: Number,\n      default: 0.5,\n    },\n    lightOpacity: {\n      type: Number,\n      default: 0.25,\n    },\n    darkOpacity: {\n      type: Number,\n      default: 0.125,\n    },\n    lightSaturation: {\n      type: Number,\n      default: 0.75,\n    },\n    darkSaturation: {\n      type: Number,\n      default: 0.75,\n    },\n    mixBlendMode: {\n      type: String,\n      default: 'soft-light',\n    },\n    animationTimingFunction: {\n      type: String,\n      default: 'linear',\n    },\n    animationDuration: {\n      type: String,\n      default: '1.5s',\n    },\n  },\n  computed: {\n    lightColor() {\n      return Color(this.color).lighten(this.lightMultiplier).saturate(this.lightSaturation).rgb();\n    },\n    darkColor() {\n      return Color(this.color).darken(this.darkMultiplier).saturate(this.darkSaturation).rgb();\n    },\n    colorStops() {\n      const lightColorString = this.lightColor.array().join(',');\n      const darkColorString = this.darkColor.array().join(',');\n      return [\n        `rgba(${lightColorString}, 0) 0%`,\n        `rgba(${lightColorString}, ${this.lightOpacity * 0.5}) 12.5%`,\n        `rgba(${lightColorString}, ${this.lightOpacity}) 25%`,\n        `rgba(${lightColorString}, ${this.lightOpacity * 0.5}) 37.5%`,\n        `rgba(${lightColorString}, 0) 50%`,\n        `rgba(${darkColorString}, 0) 50%`,\n        `rgba(${darkColorString}, ${this.darkOpacity * 0.5}) 62.5%`,\n        `rgba(${darkColorString}, ${this.darkOpacity}) 75%`,\n        `rgba(${darkColorString}, ${this.darkOpacity * 0.5}) 87.5%`,\n        `rgba(${darkColorString}, 0) 100%`,\n      ].join(',')\n    },\n  },\n}\n</script>\n\n<style scoped>\n  @keyframes move-right {\n    from {\n      transform: translateX(-125%);\n    }\n\n    to {\n      transform: translateX(50%);\n    }\n  }\n\n  .skelly-shine {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 400%;\n    transform-style: preserve-3d;\n    backface-visibility: hidden;\n    will-change: transform;\n    animation-name: move-right;\n    animation-iteration-count: infinite;\n    animation-direction: alternate-reverse;\n  }\n</style>"]
+      "sourcesContent": ["<template>\n  <div\n    class=\"skelly-shine\"\n    :style=\"{\n      mixBlendMode,\n      animationDirection,\n      animationDuration,\n      animationTimingFunction,\n      backgroundImage: `linear-gradient(to right, ${colorStops})`,\n    }\"\n  />\n</template>\n\n<script>\nimport Color from 'color';\n\nexport default {\n  name: 'SkellyShine',\n  props: {\n    color: {\n      type: String,\n      default: '#000000',\n    },\n    lightMultiplier: {\n      type: Number,\n      default: 0.5,\n    },\n    darkMultiplier: {\n      type: Number,\n      default: 0.5,\n    },\n    lightOpacity: {\n      type: Number,\n      default: 0.25,\n    },\n    darkOpacity: {\n      type: Number,\n      default: 0.125,\n    },\n    lightSaturation: {\n      type: Number,\n      default: 0.75,\n    },\n    darkSaturation: {\n      type: Number,\n      default: 0.75,\n    },\n    mixBlendMode: {\n      type: String,\n      default: 'soft-light',\n    },\n    animationDirection: {\n      type: String,\n      default: 'normal',\n    },\n    animationTimingFunction: {\n      type: String,\n      default: 'linear',\n    },\n    animationDuration: {\n      type: String,\n      default: '1.5s',\n    },\n  },\n  computed: {\n    lightColor() {\n      return Color(this.color).lighten(this.lightMultiplier).saturate(this.lightSaturation).rgb();\n    },\n    darkColor() {\n      return Color(this.color).darken(this.darkMultiplier).saturate(this.darkSaturation).rgb();\n    },\n    colorStops() {\n      const lightColorString = this.lightColor.array().join(',');\n      const darkColorString = this.darkColor.array().join(',');\n      return [\n        `rgba(${lightColorString}, 0) 0%`,\n        `rgba(${lightColorString}, ${this.lightOpacity * 0.5}) 12.5%`,\n        `rgba(${lightColorString}, ${this.lightOpacity}) 25%`,\n        `rgba(${lightColorString}, ${this.lightOpacity * 0.5}) 37.5%`,\n        `rgba(${lightColorString}, 0) 50%`,\n        `rgba(${darkColorString}, 0) 50%`,\n        `rgba(${darkColorString}, ${this.darkOpacity * 0.5}) 62.5%`,\n        `rgba(${darkColorString}, ${this.darkOpacity}) 75%`,\n        `rgba(${darkColorString}, ${this.darkOpacity * 0.5}) 87.5%`,\n        `rgba(${darkColorString}, 0) 100%`,\n      ].join(',')\n    },\n  },\n}\n</script>\n\n<style scoped>\n  @keyframes move-right {\n    from {\n      transform: translateX(-125%);\n    }\n\n    to {\n      transform: translateX(50%);\n    }\n  }\n\n  .skelly-shine {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 400%;\n    transform-style: preserve-3d;\n    backface-visibility: hidden;\n    will-change: transform;\n    animation-name: move-right;\n    animation-iteration-count: infinite;\n  }\n</style>"]
     },
     media: undefined
   });
@@ -108,7 +113,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-3e9ca025";
+const __vue_scope_id__ = "data-v-26772c4e";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;
